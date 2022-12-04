@@ -69,7 +69,7 @@ function randomInt(bound: number): number {
 class CanvasPiece {
     speed_x: number;
     speed_y: number;
-    speed: number;
+    max_speed: number;
 
     constructor(
         public context: CanvasRenderingContext2D,
@@ -78,9 +78,9 @@ class CanvasPiece {
         public color: string, 
         public x: number, 
         public y: number) {
-            this.speed= randomInt(3)
-            this.speed_x = this.speed;
-            this.speed_y = this.speed;
+            this.max_speed= randomInt(3)
+            this.speed_x = this.max_speed;
+            this.speed_y = this.max_speed;
         }
     
     public update() {
@@ -92,15 +92,17 @@ class CanvasPiece {
     }
     
     public newPosition() {
+        this.max_speed += randomInt(0.5);
+        
         if (this.x - this.width / 2 < 0)
-            this.speed_x = this.speed;
+            this.speed_x = this.max_speed;
         else if ((this.x + this.width / 2) >= this.context.canvas.width)
-            this.speed_x = -this.speed;
+            this.speed_x = -this.max_speed;
 
         if (this.y - this.height / 2 < 0)
-            this.speed_y = -this.speed;
+            this.speed_y = -this.max_speed;
         else if ((this.y + this.height / 2) >= this.context.canvas.height)
-            this.speed_y = this.speed;
+            this.speed_y = this.max_speed;
         
         this.x += this.speed_x;
         this.y -= this.speed_y;
