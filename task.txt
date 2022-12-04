@@ -1,0 +1,31 @@
+U trećoj laboratorijskoj vježbi potrebno je izraditi jednostavnu računalnu igru u formi HTML5 web-stranice.
+U igri će se generirati igrače komponente (npr. jednobojni kvadrati) koji se odbijaju od rubova Canvas objekta te ih igrač mora „pogoditi“ (kliknuti) mišem.
+Brzina igraćih komponenti se mijenja nakon svakog dodira s rubom ekrana. Pogođene komponente se ne prikazuju. 
+Igra završava kada je igrač pogodio sve komponente. 
+Na početku igre (učitavanja stranice u web-pregledniku) svaki put se generira različitih broj igraćih komponenti. 
+Broj generiranih i trenutno pogođenih komponenti prikazan je kao tekst u Canvas objektu.
+
+Računalna igra ima sljedeće funkcionalnosti:
+
+    Igra započinje nakon učitavanja web-stranice. Na početku igre generira se određen broj komponenti na slučajnim položajima i sa slučajnim brzinama.
+
+    Minimalni i maksimalni broj komponenti je hardkodiran, ali njihov broj, položaj, x i y brzine su slučajne brojčane vrijednosti (random). Komponente su kvadrati (rectangle). Sve komponente imaju iste dimenzije. Svaka komponenta može imati različitu početnu brzinu i položaj.
+
+    Uz gornji desni rub Canvas objekta napisan je broj generiranih komponenti.
+    Komponente se neprekidno kreću unutar Canvas objekta određenom brzinom po x i y osi.
+    Komponente se odbijaju od ruba Canvas objekta tako da nakon odbijanja brzina im se malo promijeni.
+
+    Na postojeće brzine po x i y osi dodaju se ili oduzimaju slučajne vrijednosti.
+
+    Korisnik može kliknuti mišem na neku komponentu („pogađa komponentu“) nakon čega ona se više ne prikazuje. Unutar Canvas objekta uz broj generiranih komponenti napisan je broj „pogođenih“ komponenti.
+
+    Ako želite (nije obavezano) možete generirati zvuk ili pokazati slijed slika kao animaciju „pogotka“.
+
+Za svaku funkcionalnost koja nije implementirana gubi se jedan bod.
+
+Aplikaciju postaviti u oblak (preporuča se besplatna opcija na Renderu), a kao odgovor na ovo pitanje isporučiti redom:
+
+    adresu git repozitorija s traženom web-stranicom i svim drugim datotekama ako postoje (repozitorij može biti privatni, ali omogućiti pravo pristupa nastavnicima). Korisnički računi nastavnika za GitHub i Gitlab su : mekterovic, mhorvat i boris612
+    adresu web-stranice
+    Potrebno je brojevima 1-5 jasno navesti koje od gore spomenutih funkcionalnosti su implementirane, npr. „Implementirane su sve funkcionalnosti, 1 – 7“ ili „Implementirano je sve osim funkcionalnosti 5“.
+

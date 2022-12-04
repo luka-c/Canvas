@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> </title>
+    <script src="/static/game.js"></script>
+    <style>
+        div {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: max-content;
+            margin-top: 50px;
+        }
+
+        body {
+            background-color: #222823;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            color: #222823;
+            background-color: #ACBDBA;
+            font-weight: bold;
+            font-size: x-large;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <span>Canvas Clicker</span>
+    </nav>
+    <div id="container">
+    </div>
+    <script>startGame();</script>
+</body>
+</html>
