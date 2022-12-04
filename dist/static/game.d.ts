@@ -14,6 +14,7 @@ declare class GameArea {
     updateGameArea(): void;
 }
 declare function randomInt(bound: number): number;
+declare function randomFloat(bound: number): number;
 declare class CanvasPiece {
     context: CanvasRenderingContext2D;
     width: number;
@@ -23,10 +24,11 @@ declare class CanvasPiece {
     y: number;
     speed_x: number;
     speed_y: number;
-    speed: number;
+    max_speed: number;
     constructor(context: CanvasRenderingContext2D, width: number, height: number, color: string, x: number, y: number);
     update(): void;
     newPosition(): void;
+    changeMaxSpeed(): void;
 }
 declare function startGame(): void;
 declare function handleClick(event: MouseEvent, area: GameArea): void;

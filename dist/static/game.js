@@ -49,6 +49,9 @@ function randomInt(bound) {
         return 1;
     return num;
 }
+function randomFloat(bound) {
+    return Math.random() * bound;
+}
 class CanvasPiece {
     context;
     width;
@@ -58,7 +61,7 @@ class CanvasPiece {
     y;
     speed_x;
     speed_y;
-    speed;
+    max_speed;
     constructor(context, width, height, color, x, y) {
         this.context = context;
         this.width = width;
@@ -66,9 +69,9 @@ class CanvasPiece {
         this.color = color;
         this.x = x;
         this.y = y;
-        this.speed = randomInt(3);
-        this.speed_x = this.speed;
-        this.speed_y = this.speed;
+        this.max_speed = randomInt(3);
+        this.speed_x = this.max_speed;
+        this.speed_y = this.max_speed;
     }
     update() {
         this.context.save();
@@ -79,15 +82,27 @@ class CanvasPiece {
     }
     newPosition() {
         if (this.x - this.width / 2 < 0)
-            this.speed_x = this.speed;
-        else if ((this.x + this.width / 2) >= this.context.canvas.width)
-            this.speed_x = -this.speed;
+            this.speed_x = this.max_speed;
+        else if ((this.x + this.width / 2) >= this.context.canvas.width) {
+            this.changeMaxSpeed();
+            this.speed_x = -this.max_speed;
+        }
         if (this.y - this.height / 2 < 0)
-            this.speed_y = -this.speed;
-        else if ((this.y + this.height / 2) >= this.context.canvas.height)
-            this.speed_y = this.speed;
+            this.speed_y = -this.max_speed;
+        else if ((this.y + this.height / 2) >= this.context.canvas.height) {
+            this.changeMaxSpeed();
+            this.speed_y = this.max_speed;
+        }
         this.x += this.speed_x;
         this.y -= this.speed_y;
+    }
+    changeMaxSpeed() {
+        const decision = randomInt(2);
+        if (decision == 1)
+            this.max_speed += randomFloat(0.3);
+        else
+            this.max_speed;
+        console.log(this.max_speed);
     }
 }
 function startGame() {

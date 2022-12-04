@@ -66,6 +66,10 @@ function randomInt(bound: number): number {
     return num;
 }
 
+function randomFloat(bound: number) {
+    return Math.random() * bound;
+}
+
 class CanvasPiece {
     speed_x: number;
     speed_y: number;
@@ -92,22 +96,33 @@ class CanvasPiece {
     }
     
     public newPosition() {
-        this.max_speed += randomInt(0.5);
-        
         if (this.x - this.width / 2 < 0)
             this.speed_x = this.max_speed;
-        else if ((this.x + this.width / 2) >= this.context.canvas.width)
+        else if ((this.x + this.width / 2) >= this.context.canvas.width) {
+            this.changeMaxSpeed();
             this.speed_x = -this.max_speed;
+        }
 
         if (this.y - this.height / 2 < 0)
             this.speed_y = -this.max_speed;
-        else if ((this.y + this.height / 2) >= this.context.canvas.height)
+        else if ((this.y + this.height / 2) >= this.context.canvas.height) {
+            this.changeMaxSpeed();
             this.speed_y = this.max_speed;
+        }
         
         this.x += this.speed_x;
         this.y -= this.speed_y;
     }
+
+    public changeMaxSpeed() {
+        const decision = randomInt(2);
+        if (decision == 1)
+            this.max_speed += randomFloat(0.4);
+        else
+            this.max_speed        
+    }
 }
+
 
 function startGame() {
     const gameArea: GameArea = new GameArea();
